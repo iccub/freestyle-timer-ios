@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0A198EF31BBBFE260079A793 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A198EF21BBBFE260079A793 /* TimerController.swift */; settings = {ASSET_TAGS = (); }; };
-		0A2529751BBE8FE3006CA305 /* airhorn_finish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A2529721BBE8FE3006CA305 /* airhorn_finish.mp3 */; settings = {ASSET_TAGS = (); }; };
-		0A2529761BBE8FE3006CA305 /* airhorn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A2529731BBE8FE3006CA305 /* airhorn.mp3 */; settings = {ASSET_TAGS = (); }; };
-		0A2529771BBE8FE3006CA305 /* beep2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A2529741BBE8FE3006CA305 /* beep2.mp3 */; settings = {ASSET_TAGS = (); }; };
 		0A2529791BBE97A8006CA305 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2529781BBE97A8006CA305 /* SoundEffects.swift */; settings = {ASSET_TAGS = (); }; };
+		0A5091561BCEA63900DF4BDC /* airhorn_finish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A5091531BCEA63900DF4BDC /* airhorn_finish.mp3 */; settings = {ASSET_TAGS = (); }; };
+		0A5091571BCEA63900DF4BDC /* airhorn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A5091541BCEA63900DF4BDC /* airhorn.mp3 */; settings = {ASSET_TAGS = (); }; };
+		0A5091581BCEA63900DF4BDC /* beep2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A5091551BCEA63900DF4BDC /* beep2.mp3 */; settings = {ASSET_TAGS = (); }; };
 		0AF6FE151BB597980072236B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FE141BB597980072236B /* AppDelegate.swift */; };
 		0AF6FE171BB597980072236B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FE161BB597980072236B /* ViewController.swift */; };
 		0AF6FE1A1BB597980072236B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF6FE181BB597980072236B /* Main.storyboard */; };
@@ -41,10 +41,10 @@
 
 /* Begin PBXFileReference section */
 		0A198EF21BBBFE260079A793 /* TimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
-		0A2529721BBE8FE3006CA305 /* airhorn_finish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = airhorn_finish.mp3; path = "../../freestyle-timer/app/src/main/res/raw/airhorn_finish.mp3"; sourceTree = "<group>"; };
-		0A2529731BBE8FE3006CA305 /* airhorn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = airhorn.mp3; path = "../../freestyle-timer/app/src/main/res/raw/airhorn.mp3"; sourceTree = "<group>"; };
-		0A2529741BBE8FE3006CA305 /* beep2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep2.mp3; path = "../../freestyle-timer/app/src/main/res/raw/beep2.mp3"; sourceTree = "<group>"; };
 		0A2529781BBE97A8006CA305 /* SoundEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
+		0A5091531BCEA63900DF4BDC /* airhorn_finish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = airhorn_finish.mp3; sourceTree = "<group>"; };
+		0A5091541BCEA63900DF4BDC /* airhorn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = airhorn.mp3; sourceTree = "<group>"; };
+		0A5091551BCEA63900DF4BDC /* beep2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep2.mp3; sourceTree = "<group>"; };
 		0AF6FE111BB597980072236B /* Freestyle Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Freestyle Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF6FE141BB597980072236B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF6FE161BB597980072236B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,9 +93,9 @@
 				0AF6FE281BB597980072236B /* Freestyle TimerTests */,
 				0AF6FE331BB597980072236B /* Freestyle TimerUITests */,
 				0AF6FE121BB597980072236B /* Products */,
-				0A2529721BBE8FE3006CA305 /* airhorn_finish.mp3 */,
-				0A2529731BBE8FE3006CA305 /* airhorn.mp3 */,
-				0A2529741BBE8FE3006CA305 /* beep2.mp3 */,
+				0A5091531BCEA63900DF4BDC /* airhorn_finish.mp3 */,
+				0A5091541BCEA63900DF4BDC /* airhorn.mp3 */,
+				0A5091551BCEA63900DF4BDC /* beep2.mp3 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,12 +252,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A2529761BBE8FE3006CA305 /* airhorn.mp3 in Resources */,
+				0A5091571BCEA63900DF4BDC /* airhorn.mp3 in Resources */,
 				0AF6FE1F1BB597980072236B /* LaunchScreen.storyboard in Resources */,
 				0AF6FE1C1BB597980072236B /* Assets.xcassets in Resources */,
-				0A2529771BBE8FE3006CA305 /* beep2.mp3 in Resources */,
+				0A5091581BCEA63900DF4BDC /* beep2.mp3 in Resources */,
 				0AF6FE1A1BB597980072236B /* Main.storyboard in Resources */,
-				0A2529751BBE8FE3006CA305 /* airhorn_finish.mp3 in Resources */,
+				0A5091561BCEA63900DF4BDC /* airhorn_finish.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +433,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michalbuczek.Freestyle-Timer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -445,6 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michalbuczek.Freestyle-Timer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
