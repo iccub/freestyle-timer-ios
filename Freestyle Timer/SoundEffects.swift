@@ -22,13 +22,13 @@ class SoundEffects {
   }
 
   func initSounds() {
-    if let soundURL = NSBundle.mainBundle().URLForResource("airhorn", withExtension: "mp3") {
+    if let soundURL = NSBundle.mainBundle().URLForResource("Audio/airhorn", withExtension: "mp3") {
       AudioServicesCreateSystemSoundID(soundURL, &airhornSound)
     }
-    if let soundURL = NSBundle.mainBundle().URLForResource("airhorn_finish", withExtension: "mp3") {
+    if let soundURL = NSBundle.mainBundle().URLForResource("Audio/airhorn_finish", withExtension: "mp3") {
       AudioServicesCreateSystemSoundID(soundURL, &airhornFinishSound)
     }
-    if let soundURL = NSBundle.mainBundle().URLForResource("beep2", withExtension: "mp3") {
+    if let soundURL = NSBundle.mainBundle().URLForResource("Audio/beep2", withExtension: "mp3") {
       AudioServicesCreateSystemSoundID(soundURL, &beep)
     }
   }
