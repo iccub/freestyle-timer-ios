@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sqG-dP-yR6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sqG-dP-yR6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -47,21 +47,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-bC-9BQ">
-                                <rect key="frame" x="20" y="101" width="560" height="479"/>
-                                <animations/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="7qq-Rl-u4J" appends="YES" id="faE-KK-xnD"/>
-                                </connections>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugu-NI-LEx">
-                                <rect key="frame" x="20" y="72" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ugu-NI-LEx">
+                                <rect key="frame" x="20" y="430" width="560" height="170"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="JSt-bZ-ALZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
                                 <color key="textColor" red="0.90914648771286011" green="0.81404519081115723" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -70,22 +62,43 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="battle" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-bC-9BQ">
+                                <rect key="frame" x="20" y="180" width="560" height="240"/>
+                                <animations/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7qq-Rl-u4J" appends="YES" id="faE-KK-xnD"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Ugu-NI-LEx" firstAttribute="top" secondItem="xoV-bC-9BQ" secondAttribute="bottom" constant="10" id="3TZ-xC-vCz"/>
                             <constraint firstItem="Ugu-NI-LEx" firstAttribute="trailing" secondItem="xoV-bC-9BQ" secondAttribute="trailing" id="4Ak-mM-5rl"/>
+                            <constraint firstItem="xoV-bC-9BQ" firstAttribute="centerX" secondItem="LAj-RI-NHy" secondAttribute="centerX" id="99U-mx-6tG"/>
                             <constraint firstItem="Ugu-NI-LEx" firstAttribute="leading" secondItem="xoV-bC-9BQ" secondAttribute="leading" id="Ei0-3d-EIz"/>
                             <constraint firstItem="xoV-bC-9BQ" firstAttribute="top" secondItem="Ugu-NI-LEx" secondAttribute="bottom" constant="8" symbolic="YES" id="Irl-MK-Jwy"/>
+                            <constraint firstItem="lYL-cG-MD4" firstAttribute="top" secondItem="Ugu-NI-LEx" secondAttribute="bottom" id="PW0-Ms-vO4"/>
+                            <constraint firstItem="xoV-bC-9BQ" firstAttribute="centerY" secondItem="LAj-RI-NHy" secondAttribute="centerY" id="atV-lM-Kpz"/>
                             <constraint firstItem="Ugu-NI-LEx" firstAttribute="top" secondItem="H7x-Dh-hwk" secondAttribute="bottom" constant="8" symbolic="YES" id="azm-wB-0O3"/>
                             <constraint firstItem="xoV-bC-9BQ" firstAttribute="leading" secondItem="LAj-RI-NHy" secondAttribute="leadingMargin" id="oEZ-85-vwC"/>
+                            <constraint firstItem="lYL-cG-MD4" firstAttribute="top" secondItem="xoV-bC-9BQ" secondAttribute="bottom" constant="180" id="ppu-aU-22N"/>
+                            <constraint firstItem="lYL-cG-MD4" firstAttribute="top" secondItem="Ugu-NI-LEx" secondAttribute="bottom" id="pvK-9r-gRq"/>
                             <constraint firstItem="xoV-bC-9BQ" firstAttribute="top" secondItem="Ugu-NI-LEx" secondAttribute="bottom" id="rxE-gm-NvB"/>
+                            <constraint firstItem="xoV-bC-9BQ" firstAttribute="top" secondItem="Ugu-NI-LEx" secondAttribute="bottom" id="s5A-1W-f51"/>
                             <constraint firstItem="xoV-bC-9BQ" firstAttribute="trailing" secondItem="LAj-RI-NHy" secondAttribute="trailingMargin" id="w36-g3-ZfZ"/>
                             <constraint firstAttribute="bottom" secondItem="xoV-bC-9BQ" secondAttribute="bottom" constant="20" symbolic="YES" id="zWS-hk-Eol"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Irl-MK-Jwy"/>
                                 <exclude reference="rxE-gm-NvB"/>
+                                <exclude reference="s5A-1W-f51"/>
+                                <exclude reference="zWS-hk-Eol"/>
+                                <exclude reference="azm-wB-0O3"/>
+                                <exclude reference="PW0-Ms-vO4"/>
+                                <exclude reference="ppu-aU-22N"/>
                             </mask>
                         </variation>
                     </view>
@@ -286,6 +299,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="battle" width="281" height="240"/>
         <image name="extraround_button" width="120" height="120"/>
         <image name="pause_button" width="120" height="120"/>
         <image name="start_button" width="120" height="120"/>

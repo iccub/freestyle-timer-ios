@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "qualification.png",
+      "filename" : "qualification-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "qualification_wide.png",
       "scale" : "2x"
     },
     {

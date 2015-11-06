@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Freestyle Timer
-//
-//  Created by bucci on 25.09.2015.
-//  Copyright © 2015 Michał Buczek. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController, UIPageViewControllerDataSource {
@@ -17,7 +9,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.pageTitles = NSArray(objects: "Battle", "Qualification", "Routine")
+    self.pageTitles = NSArray(objects: GlobalConstants.TimerTypeID.battle, GlobalConstants.TimerTypeID.qualification, GlobalConstants.TimerTypeID.routine)
     self.pageImages = NSArray(objects: "battle", "qualification", "routine")
     
     self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
@@ -34,7 +26,8 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     self.view.addSubview(self.pageViewController.view)
     self.pageViewController.didMoveToParentViewController(self)
     
-    self.navigationController?.navigationBar.barStyle = UIBarStyle.Black //rozwiązuje problem różnokolorowych status barów
+    //This property allows to have white status bar text for main screens, and black when in music picker
+    self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
 
     
   }

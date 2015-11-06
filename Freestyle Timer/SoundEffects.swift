@@ -1,11 +1,3 @@
-//
-//  SoundEffects.swift
-//  Freestyle Timer
-//
-//  Created by bucci on 02.10.2015.
-//  Copyright © 2015 Michał Buczek. All rights reserved.
-//
-
 import Foundation
 import AVFoundation
 import AudioToolbox

@@ -1,11 +1,3 @@
-//
-//  TimerController.swift
-//  Freestyle Timer
-//
-//  Created by bucci on 30.09.2015.
-//  Copyright © 2015 Michał Buczek. All rights reserved.
-//
-
 import UIKit
 import MediaPlayer
 import AVFoundation
@@ -22,10 +14,28 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   @IBOutlet var titleNavigationItem: UINavigationItem!
   @IBOutlet var timerStartsInLabel: UILabel!
   
-  var timerType: String?
+  struct Constants {
+    static let timerFontName = "DBLCDTempBlack"
+    static let timerFontSize: CGFloat = 130
+    
+    static let emptySongLabelText = "🔇 No song chosen"
+    
+    static let preparationDuration = 10
+    static let battleDuration = 3 * 60
+    static let qualificationDuration = (Int)(1.5 * 60)
+    static let extraTimeDuration = 2 * 30
+    
+    
+    static let noSongChosenNotificationTitle = "No song chosen"
+    static let noSongChosenNotificationMsg = "Please choose song by using \"Pick Song\" button on navigation bar."
+    
+    static let updateTimeMethodName: Selector = "updateTime"
+  }
+  
+  var timerType: String = ""
   var startTime = 0
   var battleDuration = 0
-  var preparationTime = 10
+//  var preparationTime = 10
   var timePassed = 0
   var timer = NSTimer()
   var playURL: NSURL?
@@ -37,12 +47,9 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    titleNavigationItem.title = timerType!
-    print("timer type: \(timerType)") //działa
-    initTimer(timerType!)
+    titleNavigationItem.title = timerType
+    initTimer(timerType)
     
-    
-    // Do any additional setup after loading the view.
     do {
       try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
       try AVAudioSession.sharedInstance().setActive(true)
@@ -51,56 +58,50 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
       print("music background enable error")
     }
     
-    timerLabel.font = UIFont(name: "DBLCDTempBlack", size: 130)
-    songNameLabel.text = "🔇 No song chosen"
+    timerLabel.font = UIFont(name: Constants.timerFontName, size: Constants.timerFontSize)
+    songNameLabel.text = Constants.emptySongLabelText
     
   }
   
-
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    if (self.isMovingFromParentViewController()) {      
+    if (self.isMovingFromParentViewController()) {
       timer.invalidate()
       audioPlayer?.stop()
     }
   }
   
- 
+  
   func initTimer(timerType: String) {
     switch timerType {
-    case "Battle" :
-        timerLabel.text = "3:00"
-      battleDuration = 3 * 60
-//      battleDuration = 20 //temp
-    case "Qualification" :
-      timerLabel.text = "1:30"
-      battleDuration = (Int)(1.5 * 60)
-    case "Routine" :
-      timerLabel.text = "0:00"
+    case GlobalConstants.TimerTypeID.battle:
+      battleDuration = Constants.battleDuration
+    case GlobalConstants.TimerTypeID.qualification:
+      battleDuration = Constants.qualificationDuration
+    case GlobalConstants.TimerTypeID.routine:
       if audioPlayer != nil {
         battleDuration = Int((audioPlayer?.duration)!)
-        timerLabel.text = formatTime(battleDuration)
+        //        timerLabel.text = formatTime(battleDuration)
       } else {
         battleDuration = 0
       }
     default:
       timerLabel.text = "0:00"
-      //5 seconds for test purposes
       startTime = 0
     }
     
+    timerLabel.text = formatDurationToLabelText(battleDuration)
+    
+    
     //adding 10 sec preparation window
-    startTime = preparationTime
+    startTime = Constants.preparationDuration
     
   }
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return UIStatusBarStyle.Default
   }
   
-  func playSound() {
-    
-  }
   
   @IBAction func chooseSong(sender: UIBarButtonItem) {
     let mpMediaPicker = MPMediaPickerController()
@@ -114,15 +115,9 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   func mediaPicker(mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
     self.dismissViewControllerAnimated(true, completion: nil)
     let mediaItem = mediaItemCollection.items[0]
-    print("count: \(mediaItemCollection.count)")
     
-    //    print("\(mediaItem == nil)")
-//    let songArtist = mediaItem.valueForProperty(MPMediaItemPropertyArtist) as! String
     let songTitle = mediaItem.valueForProperty(MPMediaItemPropertyTitle) as! String
-    
-//    print("url: \(mediaItem.valueForProperty(MPMediaItemPropertyAssetURL))")
-    
-    playURL = mediaItem.valueForProperty(MPMediaItemPropertyAssetURL) as! NSURL
+    playURL = mediaItem.valueForProperty(MPMediaItemPropertyAssetURL) as? NSURL
     
     songNameLabel.text = "🔊 \(songTitle)"
     
@@ -130,14 +125,14 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
       do {
         try audioPlayer = AVAudioPlayer(contentsOfURL: playURL!)
       } catch {
-        print("Błąd")
+        print("Error while setting song url")
       }
       
     }
     
-    if timerType == "Routine" {
+    if timerType == GlobalConstants.TimerTypeID.routine {
       battleDuration = Int((audioPlayer?.duration)!)
-      timerLabel.text = formatTime(battleDuration)
+      timerLabel.text = formatDurationToLabelText(battleDuration)
     }
     
   }
@@ -153,65 +148,78 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   }
   
   func updateTime() {
-    timerLabel.text = "\(formatTime(--startTime))"
-
+    timerLabel.text = "\(formatDurationToLabelText(--startTime))"
     timePassed++
     
-
     
-    if timePassed == battleDuration + preparationTime {
-      if timerType != "Routine" {
+    if hasTimerFinished() {
+      if timerType != GlobalConstants.TimerTypeID.routine {
         SoundEffects.sharedInstance.playAirhornFinishSound()
       }
       
       stop(UIButton())
-//      timerFinished()
       
-      if timerType == "Battle" {
+      if timerType == GlobalConstants.TimerTypeID.battle {
         extraTimeButton.hidden = false
       }
       return
     }
     
-    if (timePassed - preparationTime) % 30 == 0 {
-      switch timerType! {
-        case "Battle":
-          SoundEffects.sharedInstance.playAirhornSound()
-        case "Qualification":
-          SoundEffects.sharedInstance.playBeepSound()
-      default:
-        break
-      }
-      
+    if has30secondsPassed() {
+      playIntervalSound()
     }
     
     //po 10 sek odpal muzę
-    if timePassed == preparationTime {
-      startTime = battleDuration
-      timerStartsInLabel.hidden = true
-      if !isPlaying && playURL != nil {
-          audioPlayer!.prepareToPlay()
-      }
-      
-      if playURL != nil {
-        audioPlayer!.play()
-      }
+    if hasPreparationTimeFinished() {
+      startBattle()
     }
     
     
     
   }
   
-  func formatTime(timeInSeconds: Int) -> String {
-    if timeInSeconds < 10 {
+  func hasTimerFinished() -> Bool {
+    return timePassed == battleDuration + Constants.preparationDuration
+  }
+  
+  func has30secondsPassed() -> Bool  {
+    return (timePassed - Constants.preparationDuration) % 30 == 0
+  }
+  
+  func hasPreparationTimeFinished() -> Bool {
+    return timePassed == Constants.preparationDuration
+  }
+  
+  func playIntervalSound() {
+    switch timerType {
+    case GlobalConstants.TimerTypeID.battle:
+      SoundEffects.sharedInstance.playAirhornSound()
+    case GlobalConstants.TimerTypeID.qualification:
+      SoundEffects.sharedInstance.playBeepSound()
+    default:
+      break
+    }
+  }
+  
+  func startBattle() {
+    startTime = battleDuration
+    timerStartsInLabel.hidden = true
+    if !isPlaying && playURL != nil {
+      audioPlayer!.prepareToPlay()
+    }
+    
+    if playURL != nil {
+      audioPlayer!.play()
+    }
+  }
+  
+  func formatDurationToLabelText(timeInSeconds: Int) -> String {
+    if timeInSeconds < 10 && timeInSeconds > 0 {
       return "\(timeInSeconds)"
     }
     
     let minutes: Int = timeInSeconds / 60
     let seconds =     String(format: "%02d", timeInSeconds - (minutes * 60))
-
-    
-//    String(format: "%02d", timeInSeconds - (minutes * 60))
     
     return "\(minutes):\(seconds)"
   }
@@ -219,37 +227,43 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   // MARK: Timer functions
   
   @IBAction func play(sender: UIButton) {
-    if timerType == "Routine" && battleDuration == 0 {
-      
-      let alert = UIAlertController(title: "No song chosen", message: "Please choose song by using \"Pick Song\" button on navigation bar.", preferredStyle: UIAlertControllerStyle.Alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-      self.presentViewController(alert, animated: true, completion: nil)
-      
+    if timerType == GlobalConstants.TimerTypeID.routine && !isSongForRoutineSet() {
+      notifyUserToPickSong()
       return
     }
     
     playButton.hidden = true
     pauseButton.hidden = false
     extraTimeButton.hidden = true
-    
-
+    self.navigationItem.rightBarButtonItem?.enabled = false
     
     if !isPlaying {
       timerStartsInLabel.hidden = false
     }
     
     
-    
-    self.navigationItem.rightBarButtonItem?.enabled = false
-    
     if (!timer.valid) {
-      let aSelector : Selector = "updateTime"
-      timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: aSelector, userInfo: nil, repeats: true)
+      initNSTimer()
     }
     
-    if isPlaying && playURL != nil && timePassed > preparationTime {
+    if isPlaying && playURL != nil && timePassed > Constants.preparationDuration {
       audioPlayer!.play()
     }
+  }
+  
+  func isSongForRoutineSet() -> Bool {
+    return battleDuration != 0
+  }
+  
+  func notifyUserToPickSong() {
+    let alert = UIAlertController(title: Constants.noSongChosenNotificationTitle, message: Constants.noSongChosenNotificationMsg, preferredStyle: UIAlertControllerStyle.Alert)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+    self.presentViewController(alert, animated: true, completion: nil)
+  }
+  
+  func initNSTimer() {
+    let selector : Selector = Constants.updateTimeMethodName
+    timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: selector, userInfo: nil, repeats: true)
   }
   
   @IBAction func pause(sender: AnyObject) {
@@ -270,16 +284,15 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   
   @IBAction func extraTime(sender: UIButton) {
     extraTimeButton.hidden = true
-    timerLabel.text = "1:00"
-    
-    battleDuration = 2 * 30
+    battleDuration = Constants.extraTimeDuration
+    timerLabel.text = formatDurationToLabelText(battleDuration)
     play(UIButton())
   }
   
   func timerFinished() {
     playButton.hidden = false
     pauseButton.hidden = true
-    startTime = preparationTime
+    startTime = Constants.preparationDuration
     timerStartsInLabel.hidden = true
     timePassed = 0
     timer.invalidate()
@@ -297,20 +310,7 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   
   @IBAction func stop(sender: UIButton) {
     timerFinished()
-    
-    initTimer(timerType!)
+    initTimer(timerType)
   }
-  
-  
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
   
 }

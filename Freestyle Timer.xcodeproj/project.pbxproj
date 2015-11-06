@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A198EF31BBBFE260079A793 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A198EF21BBBFE260079A793 /* TimerController.swift */; settings = {ASSET_TAGS = (); }; };
-		0A2529791BBE97A8006CA305 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2529781BBE97A8006CA305 /* SoundEffects.swift */; settings = {ASSET_TAGS = (); }; };
-		0A50915A1BCFB1A300DF4BDC /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 0A5091591BCFB1A300DF4BDC /* Audio */; settings = {ASSET_TAGS = (); }; };
+		0A198EF31BBBFE260079A793 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A198EF21BBBFE260079A793 /* TimerController.swift */; };
+		0A2529791BBE97A8006CA305 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2529781BBE97A8006CA305 /* SoundEffects.swift */; };
+		0A50915A1BCFB1A300DF4BDC /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 0A5091591BCFB1A300DF4BDC /* Audio */; };
+		0A874EE11BECC2BD009CB468 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A874EE01BECC2BD009CB468 /* GlobalConstants.swift */; };
 		0AF6FE151BB597980072236B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FE141BB597980072236B /* AppDelegate.swift */; };
 		0AF6FE171BB597980072236B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FE161BB597980072236B /* ViewController.swift */; };
 		0AF6FE1A1BB597980072236B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF6FE181BB597980072236B /* Main.storyboard */; };
@@ -17,7 +18,7 @@
 		0AF6FE1F1BB597980072236B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF6FE1D1BB597980072236B /* LaunchScreen.storyboard */; };
 		0AF6FE2A1BB597980072236B /* Freestyle_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FE291BB597980072236B /* Freestyle_TimerTests.swift */; };
 		0AF6FE351BB597980072236B /* Freestyle_TimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FE341BB597980072236B /* Freestyle_TimerUITests.swift */; };
-		0AF6FE451BB59DFE0072236B /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FE441BB59DFE0072236B /* PageItemController.swift */; settings = {ASSET_TAGS = (); }; };
+		0AF6FE451BB59DFE0072236B /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FE441BB59DFE0072236B /* PageItemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		0A198EF21BBBFE260079A793 /* TimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		0A2529781BBE97A8006CA305 /* SoundEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
 		0A5091591BCFB1A300DF4BDC /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
+		0A874EE01BECC2BD009CB468 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		0AF6FE111BB597980072236B /* Freestyle Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Freestyle Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF6FE141BB597980072236B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF6FE161BB597980072236B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				0AF6FE141BB597980072236B /* AppDelegate.swift */,
 				0AF6FE161BB597980072236B /* ViewController.swift */,
+				0A874EE01BECC2BD009CB468 /* GlobalConstants.swift */,
 				0AF6FE181BB597980072236B /* Main.storyboard */,
 				0AF6FE441BB59DFE0072236B /* PageItemController.swift */,
 				0A198EF21BBBFE260079A793 /* TimerController.swift */,
@@ -278,6 +281,7 @@
 				0A198EF31BBBFE260079A793 /* TimerController.swift in Sources */,
 				0AF6FE151BB597980072236B /* AppDelegate.swift in Sources */,
 				0A2529791BBE97A8006CA305 /* SoundEffects.swift in Sources */,
+				0A874EE11BECC2BD009CB468 /* GlobalConstants.swift in Sources */,
 				0AF6FE451BB59DFE0072236B /* PageItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Freestyle Timer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -433,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Freestyle Timer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
