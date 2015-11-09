@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0AF9A71BECD6F200F702E2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0A0AF9A61BECD6F200F702E2 /* LICENSE */; };
 		0A198EF31BBBFE260079A793 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A198EF21BBBFE260079A793 /* TimerController.swift */; };
 		0A2529791BBE97A8006CA305 /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2529781BBE97A8006CA305 /* SoundEffects.swift */; };
 		0A50915A1BCFB1A300DF4BDC /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = 0A5091591BCFB1A300DF4BDC /* Audio */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0AF9A61BECD6F200F702E2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0A198EF21BBBFE260079A793 /* TimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		0A2529781BBE97A8006CA305 /* SoundEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
 		0A5091591BCFB1A300DF4BDC /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		0AF6FE081BB597980072236B = {
 			isa = PBXGroup;
 			children = (
+				0A0AF9A61BECD6F200F702E2 /* LICENSE */,
 				0AF6FE131BB597980072236B /* Freestyle Timer */,
 				0AF6FE281BB597980072236B /* Freestyle TimerTests */,
 				0AF6FE331BB597980072236B /* Freestyle TimerUITests */,
@@ -253,6 +256,7 @@
 				0AF6FE1C1BB597980072236B /* Assets.xcassets in Resources */,
 				0A50915A1BCFB1A300DF4BDC /* Audio in Resources */,
 				0AF6FE1A1BB597980072236B /* Main.storyboard in Resources */,
+				0A0AF9A71BECD6F200F702E2 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

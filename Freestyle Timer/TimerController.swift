@@ -35,7 +35,6 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   var timerType: String = ""
   var startTime = 0
   var battleDuration = 0
-//  var preparationTime = 10
   var timePassed = 0
   var timer = NSTimer()
   var playURL: NSURL?
@@ -46,6 +45,11 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    playButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+    pauseButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+    extraTimeButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+    stopButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
     
     titleNavigationItem.title = timerType
     initTimer(timerType)
@@ -148,6 +152,41 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
   }
   
   func updateTime() {
+    func hasTimerFinished() -> Bool {
+      return timePassed == battleDuration + Constants.preparationDuration
+    }
+    
+    func has30secondsPassed() -> Bool  {
+      return (timePassed - Constants.preparationDuration) % 30 == 0
+    }
+    
+    func hasPreparationTimeFinished() -> Bool {
+      return timePassed == Constants.preparationDuration
+    }
+    
+    func playIntervalSound() {
+      switch timerType {
+      case GlobalConstants.TimerTypeID.battle:
+        SoundEffects.sharedInstance.playAirhornSound()
+      case GlobalConstants.TimerTypeID.qualification:
+        SoundEffects.sharedInstance.playBeepSound()
+      default:
+        break
+      }
+    }
+    
+    func startBattle() {
+      startTime = battleDuration
+      timerStartsInLabel.hidden = true
+      if !isPlaying && playURL != nil {
+        audioPlayer!.prepareToPlay()
+      }
+      
+      if playURL != nil {
+        audioPlayer!.play()
+      }
+    }
+    
     timerLabel.text = "\(formatDurationToLabelText(--startTime))"
     timePassed++
     
@@ -178,43 +217,10 @@ class TimerController: UIViewController, MPMediaPickerControllerDelegate {
     
   }
   
-  func hasTimerFinished() -> Bool {
-    return timePassed == battleDuration + Constants.preparationDuration
-  }
   
-  func has30secondsPassed() -> Bool  {
-    return (timePassed - Constants.preparationDuration) % 30 == 0
-  }
-  
-  func hasPreparationTimeFinished() -> Bool {
-    return timePassed == Constants.preparationDuration
-  }
-  
-  func playIntervalSound() {
-    switch timerType {
-    case GlobalConstants.TimerTypeID.battle:
-      SoundEffects.sharedInstance.playAirhornSound()
-    case GlobalConstants.TimerTypeID.qualification:
-      SoundEffects.sharedInstance.playBeepSound()
-    default:
-      break
-    }
-  }
-  
-  func startBattle() {
-    startTime = battleDuration
-    timerStartsInLabel.hidden = true
-    if !isPlaying && playURL != nil {
-      audioPlayer!.prepareToPlay()
-    }
-    
-    if playURL != nil {
-      audioPlayer!.play()
-    }
-  }
   
   func formatDurationToLabelText(timeInSeconds: Int) -> String {
-    if timeInSeconds < 10 && timeInSeconds > 0 {
+    if timeInSeconds < 10 {
       return "\(timeInSeconds)"
     }
     
