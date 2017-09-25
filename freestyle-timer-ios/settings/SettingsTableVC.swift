@@ -18,6 +18,7 @@
 */
 
 import UIKit
+import StoreKit
 import os.log
 
 /**
@@ -36,9 +37,15 @@ class SettingsTableVC: UITableViewController {
     @IBOutlet weak var qualPreparationTimeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
     
+    @IBOutlet weak var appVersion: UILabel!
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+            appVersion.text = version
+        }
         
         let settings = UserDefaults.standard
 
@@ -73,7 +80,29 @@ class SettingsTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // We use SKStoreReviewController.requestReview() for app rating, but it's only availiable from iOS 10.3 and
+        // higher. This is not crucial functionallity so we just hide the rate app cell for not compatibile devices
+        
+        if #available(iOS 10.3, *) {
+            return super.tableView(tableView, heightForRowAt: indexPath)
+        } else {
+            let rateAppCellTag = 10
+            let cell = tableView.cellForRow(at: indexPath)
+            
+            return cell?.tag == rateAppCellTag ? 0 : super.tableView(tableView, heightForRowAt: indexPath)
+        }
+    }
+    
+    // MARK: - IBActions
+    @IBAction func rateAppTapped(_ sender: UIButton) {
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        }
+        os_log("rateAppTapped on device lower than iOS 10.3", log: SettingsTableVC.log, type: .error)
+    }
+    
     // MARK: - Segue navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier else { return }

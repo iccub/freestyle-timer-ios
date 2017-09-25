@@ -267,9 +267,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="250" image="mode-battle-icon" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-b8-fKy">
                                         <rect key="frame" x="0.0" y="113.5" width="375" height="106"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRp-iu-Beb">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Mode for 2-4 players, use your own music. Switch sound is played after each round. " textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRp-iu-Beb">
                                         <rect key="frame" x="0.0" y="227.5" width="375" height="105.5"/>
-                                        <string key="text">Mode for 2-4 players. Sound is played after each round is done. Open settings to adjust round duration, number of players and rounds.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -331,7 +330,7 @@
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xL-2b-2kd">
                                         <rect key="frame" x="0.0" y="227.5" width="375" height="105.5"/>
-                                        <string key="text">Mode for 1 player to practice qualification rounds. After each 30 secunds sound is played to help you keep track of time passed.</string>
+                                        <string key="text">Mode for 1 player to practice qualification rounds. After each 30 seconds, beep sound is played to help you keep track of the time passed.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
