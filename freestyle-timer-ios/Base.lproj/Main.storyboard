@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fTx-Ha-KYl">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Freestyle Timer-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ChooseModeVC" id="BYZ-38-t0r" customClass="ChooseModeVC" customModule="freestyle_timer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="iF3-2t-bcH">
+                                <rect key="frame" x="8" y="132" width="359" height="519"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Tap to choose timer mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zn0-T9-aWf">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NlT-5i-LKF">
+                                        <rect key="frame" x="0.0" y="52" width="359" height="385.5"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="qtw-x7-meC">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="348.5"/>
+                                                <connections>
+                                                    <segue destination="Unf-jV-J6n" kind="embed" id="yuN-P2-8Wj"/>
+                                                </connections>
+                                            </containerView>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="JV8-FI-15s">
+                                                <rect key="frame" x="0.0" y="348.5" width="359" height="37"/>
+                                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </pageControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qZb-4G-5Gv">
+                                        <rect key="frame" x="0.0" y="469" width="359" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geZ-gp-gHe" userLabel="Spacer">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="50"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsN-mi-Jhr" customClass="BorderedButton" customModule="freestyle_timer_ios" customModuleProvider="target">
+                                                <rect key="frame" x="122.5" y="0.0" width="114" height="50"/>
+                                                <state key="normal" title="Select">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="Yky-0A-Vd4" kind="show" identifier="gotoTimerVC" id="V2c-9s-CWd"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uv-co-Gjd" userLabel="Spacer">
+                                                <rect key="frame" x="244.5" y="0.0" width="114.5" height="50"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.24705882352941178" green="0.31764705879999999" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iF3-2t-bcH" secondAttribute="bottom" constant="16" id="DgH-RX-WOi"/>
+                            <constraint firstItem="iF3-2t-bcH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="O1U-nf-3tF"/>
+                            <constraint firstItem="iF3-2t-bcH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-8" id="OGd-Db-PL7"/>
+                            <constraint firstItem="NlT-5i-LKF" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.7" id="ebg-GS-P34"/>
+                            <constraint firstItem="iF3-2t-bcH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="rKS-3B-NKX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Freestyle Timer" id="Mg6-Eg-fIg">
+                        <barButtonItem key="rightBarButtonItem" image="settings-icon" style="done" id="JfN-NJ-gLF">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="2od-B6-Ddv" kind="show" id="Hgj-bv-e4U"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="timerModeContainerView" destination="qtw-x7-meC" id="Vqj-j7-foG"/>
+                        <outlet property="timerModesPageControl" destination="JV8-FI-15s" id="H4t-I2-Znw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="324"/>
+        </scene>
+        <!--TimerVC-->
+        <scene sceneID="iDS-FM-r2D">
+            <objects>
+                <viewController id="Yky-0A-Vd4" customClass="TimerVC" customModule="freestyle_timer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="duT-Ij-uHn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="E8V-rH-06x">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bGB-Lc-EAa"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jPv-o0-uzy"/>
+                                    <barButtonItem title="Tap to pick a song" id="xuI-a5-UxH">
+                                        <connections>
+                                            <action selector="chooseSongTapped:" destination="Yky-0A-Vd4" id="pjT-Br-cf3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Lgc-GT-TI6">
+                                <rect key="frame" x="16" y="132" width="343" height="427"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FkS-00-cuW">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43F-6a-jg6">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no music chosen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNv-IC-0RJ">
+                                                <rect key="frame" x="0.0" y="20.5" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-Ex-ZHs">
+                                        <rect key="frame" x="0.0" y="158.5" width="343" height="107.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="250" text="3:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFZ-dl-r7v">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="107.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="90"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="timer starts in..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WH-Ln-SR0">
+                                                <rect key="frame" x="0.0" y="-290.5" width="343" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Uy-6B-GDA">
+                                        <rect key="frame" x="0.0" y="383" width="343" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3Z-bl-kxn" customClass="BorderedButton" customModule="freestyle_timer_ios" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="iAt-Et-MBW"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="Play"/>
+                                                <connections>
+                                                    <action selector="playTapped:" destination="Yky-0A-Vd4" eventType="touchUpInside" id="COi-gf-1ZX"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xex-sH-fK3" customClass="BorderedButton" customModule="freestyle_timer_ios" customModuleProvider="target">
+                                                <rect key="frame" x="171.5" y="0.0" width="0.0" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="QMj-ig-Gxi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="Pause"/>
+                                                <connections>
+                                                    <action selector="pauseTapped:" destination="Yky-0A-Vd4" eventType="touchUpInside" id="bNt-wc-cpb"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQ6-qp-chL" customClass="BorderedButton" customModule="freestyle_timer_ios" customModuleProvider="target">
+                                                <rect key="frame" x="171.5" y="0.0" width="0.0" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="2KR-cG-9G0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="Extra round"/>
+                                                <connections>
+                                                    <action selector="extraRoundTapped:" destination="Yky-0A-Vd4" eventType="touchUpInside" id="I73-hM-Gcc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7U-pO-FVt" customClass="BorderedButton" customModule="freestyle_timer_ios" customModuleProvider="target">
+                                                <rect key="frame" x="175.5" y="0.0" width="167.5" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="gJD-bi-FyG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="Reset"/>
+                                                <connections>
+                                                    <action selector="stopTapped:" destination="Yky-0A-Vd4" eventType="touchUpInside" id="4wF-hD-hYF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2470588235" green="0.31764705879999999" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4yR-BQ-3FK" firstAttribute="trailing" secondItem="Lgc-GT-TI6" secondAttribute="trailing" constant="16" id="7i1-Ag-yr5"/>
+                            <constraint firstItem="E8V-rH-06x" firstAttribute="bottom" secondItem="4yR-BQ-3FK" secondAttribute="bottom" id="Irx-ti-v80"/>
+                            <constraint firstItem="Lgc-GT-TI6" firstAttribute="top" secondItem="4yR-BQ-3FK" secondAttribute="top" constant="16" id="KKK-ad-rZr"/>
+                            <constraint firstItem="Lgc-GT-TI6" firstAttribute="leading" secondItem="4yR-BQ-3FK" secondAttribute="leading" constant="16" id="OUg-Pa-m4u"/>
+                            <constraint firstItem="E8V-rH-06x" firstAttribute="leading" secondItem="4yR-BQ-3FK" secondAttribute="leading" id="UHj-nl-fwN"/>
+                            <constraint firstItem="E8V-rH-06x" firstAttribute="top" secondItem="Lgc-GT-TI6" secondAttribute="bottom" constant="64" id="cAL-y8-QJ0"/>
+                            <constraint firstItem="E8V-rH-06x" firstAttribute="trailing" secondItem="4yR-BQ-3FK" secondAttribute="trailing" id="v1V-EV-vPS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4yR-BQ-3FK"/>
+                    </view>
+                    <connections>
+                        <outlet property="chooseSongButton" destination="xuI-a5-UxH" id="jan-Un-CNK"/>
+                        <outlet property="extraRoundButton" destination="GQ6-qp-chL" id="lIf-e8-WNf"/>
+                        <outlet property="pauseButton" destination="xex-sH-fK3" id="GMS-0x-69G"/>
+                        <outlet property="playButton" destination="d3Z-bl-kxn" id="WSd-o8-B8R"/>
+                        <outlet property="songNameLabel" destination="pNv-IC-0RJ" id="0vR-th-Blz"/>
+                        <outlet property="stopButton" destination="Q7U-pO-FVt" id="Ye5-Lw-4mx"/>
+                        <outlet property="timerLabel" destination="kFZ-dl-r7v" id="47e-xJ-suP"/>
+                        <outlet property="timerTooltipLabel" destination="1WH-Ln-SR0" id="lQE-L0-wWx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBB-Nd-XFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991.20000000000005" y="1206.7466266866568"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="gRv-XX-nXF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="2od-B6-Ddv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yP5-HG-ktE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516" y="37"/>
+        </scene>
+        <!--Timer Modes PageVC-->
+        <scene sceneID="8nL-Mw-a5f">
+            <objects>
+                <pageViewController storyboardIdentifier="TimerTypesPageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Unf-jV-J6n" customClass="TimerModesPageVC" customModule="freestyle_timer_ios" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajo-7H-CNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1838" y="323"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SSr-el-EV4">
+            <objects>
+                <viewController storyboardIdentifier="mode-battle" id="Vgd-We-1gz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XCf-dj-oPc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ehL-Eh-KdW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Battle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQl-5N-UUe">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="250" image="mode-battle-icon" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-b8-fKy">
+                                        <rect key="frame" x="0.0" y="113.5" width="375" height="106"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Mode for 2-4 players, use your own music. Switch sound is played after each round. " textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRp-iu-Beb">
+                                        <rect key="frame" x="0.0" y="227.5" width="375" height="105.5"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pJV-Rc-mQf" firstAttribute="trailing" secondItem="ehL-Eh-KdW" secondAttribute="trailing" id="YZB-4c-AKe"/>
+                            <constraint firstItem="ehL-Eh-KdW" firstAttribute="top" secondItem="pJV-Rc-mQf" secondAttribute="top" id="f92-DS-fvl"/>
+                            <constraint firstItem="ehL-Eh-KdW" firstAttribute="leading" secondItem="pJV-Rc-mQf" secondAttribute="leading" id="ggz-rE-q9n"/>
+                            <constraint firstItem="pJV-Rc-mQf" firstAttribute="bottom" secondItem="ehL-Eh-KdW" secondAttribute="bottom" id="xIq-b3-ghu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pJV-Rc-mQf"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="333"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NfP-5k-VMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2486" y="-20"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hpF-Qn-h8Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fTx-Ha-KYl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="INg-EL-6Uh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ltk-Ai-15C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yfJ-4h-TUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="190" y="325"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kIT-T4-ong">
+            <objects>
+                <viewController storyboardIdentifier="mode-qualification" id="iPj-bS-URn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WZR-H1-rts">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jHF-Pm-ROL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Qualification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvZ-lp-yXC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="250" image="mode-qualification-icon" translatesAutoresizingMaskIntoConstraints="NO" id="55S-YN-5KS">
+                                        <rect key="frame" x="0.0" y="113.5" width="375" height="106"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xL-2b-2kd">
+                                        <rect key="frame" x="0.0" y="227.5" width="375" height="105.5"/>
+                                        <string key="text">Mode for 1 player to practice qualification rounds. After each 30 seconds, beep sound is played to help you keep track of the time passed.</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="gPj-ZT-8Kn" firstAttribute="trailing" secondItem="jHF-Pm-ROL" secondAttribute="trailing" id="aCO-uc-l9h"/>
+                            <constraint firstItem="jHF-Pm-ROL" firstAttribute="top" secondItem="gPj-ZT-8Kn" secondAttribute="top" id="mXZ-UA-S3I"/>
+                            <constraint firstItem="gPj-ZT-8Kn" firstAttribute="bottom" secondItem="jHF-Pm-ROL" secondAttribute="bottom" id="rcc-iG-fSO"/>
+                            <constraint firstItem="jHF-Pm-ROL" firstAttribute="leading" secondItem="gPj-ZT-8Kn" secondAttribute="leading" id="wTj-iU-JrD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gPj-ZT-8Kn"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="333"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tnr-At-cci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2486" y="330"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mode-battle-icon" width="832" height="768"/>
+        <image name="mode-qualification-icon" width="1728" height="1719"/>
+        <image name="settings-icon" width="22" height="22"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+</document>
